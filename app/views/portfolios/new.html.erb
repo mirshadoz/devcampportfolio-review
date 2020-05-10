@@ -1,4 +1,17 @@
 <h1>New Portfolio Item</h1>
+
+<% if @portfolio_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@portfolio_item.errors.count, "error") %> prohibited this Portfolio from being saved:</h2>
+
+      <ul>
+        <% @portfolio_item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <%= form_for(@portfolio_item) do |form| %>
   <div class="field">
     <%= form.label :title %>
@@ -13,6 +26,16 @@
   <div class="field">
     <%= form.label :body %>
     <%= form.text_area :body %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :main_image %>
+    <%= form.text_area :main_image %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :thumb_image %>
+    <%= form.text_area :thumb_image %>
   </div>
 
   <div class="actions">
