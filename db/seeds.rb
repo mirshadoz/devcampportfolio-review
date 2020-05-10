@@ -48,3 +48,10 @@ end
 
 
 puts "1 portfolio items created successfully"
+
+3.times do |technology|
+  Portfolio.last.technologies.create!(
+    name: "Best Technology #{technology}"
+  )
+end
+
